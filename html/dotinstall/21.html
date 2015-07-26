@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>lesson21</title>
+  </head>
+  <body>
+    <article>
+      <h1>アンケート</h1>
+      <form action="survey.php" method="post">
+      <p>メールアドレス<input type="text" name="email"></p>
+
+      <p>
+        City:
+        <select name="city">
+          <option  value="tokyo">Tokyo</option>
+          <option  value="nagoya">Nagoya</option>
+          <option  value="osaka">Osaka</option>
+          <option  value="fukuoka" selected>Fukuoka</option>
+          <option  value="hokkaido">Hokkaido</option>
+        </select>
+      </p>
+      <p>
+        City:
+        <select name="city" multiple size="6">
+          <option  value="tokyo">Tokyo</option>
+          <option  value="nagoya">Nagoya</option>
+          <option  value="osaka">Osaka</option>
+          <option  value="fukuoka" selected>Fukuoka</option>
+          <option  value="hokkaido">Hokkaido</option>
+        </select>
+      </p>
+      <p><input type="submit" value="送信！"></p>
+      </form>
+    </article>
+  </body>
+</html>
