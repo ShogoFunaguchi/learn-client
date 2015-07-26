@@ -1,0 +1,5 @@
+
+p:first-line{color: skyblue;}
+p:first-letter{color: violet;}
+p:before{content:"-->"}
+p:after{content:"<--"}
