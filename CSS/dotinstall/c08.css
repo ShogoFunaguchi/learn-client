@@ -1,0 +1,8 @@
+/*優先度のお話
+style>id>擬似クラス、属性>要素、擬似要素
+
+*/
+a{color:skyblue; !important;}
+a.link{color:pink;}
+a.search{color:orange;}
+a#site{color:blue;}
