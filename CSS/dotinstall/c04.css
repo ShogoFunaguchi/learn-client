@@ -1,0 +1,15 @@
+/*
+ a b :divの下の階層にあるspanすべて
+ a>b :divの直下にあるspanすべて
+ a+b :pの次にあるpまで適用
+ ab :aの直下にあるbに対して適用
+*/
+
+/*h1,p{color: skyblue;}*/
+
+
+/*div span{color: skyblue;}*/
+
+/*div > span{color: skyblue;}*/
+/*p + p{color: skyblue;}*/
+p.points{color: skyblue;}
