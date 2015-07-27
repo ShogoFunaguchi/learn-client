@@ -1,0 +1,10 @@
+body,html{height: 100%}
+body{margin:0;}
+div {
+  background:skyblue;
+  border: der-color: green;
+  border-width:5px;
+  border-style:dashed;
+  padding:10px 30px 40px;
+
+}
