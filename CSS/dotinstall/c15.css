@@ -1,0 +1,5 @@
+ul{
+  /*list-style: outside decimal;*/
+  /*list-style: inside lower-alpha;*/
+  list-style:url("kayo.jpg")
+}
