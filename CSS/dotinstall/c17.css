@@ -1,0 +1,9 @@
+body{background-color: skyblue;
+    background-image: url(kayo.jpg);
+    background-position:center ;
+    /*background-repeat:no-repeat;*/
+    /*background-repeat:repeat-x;*/
+    background-attachment:fixed;
+    /*background-attachment:scroll;*/
+    background-repeat:no-repeat;
+}
