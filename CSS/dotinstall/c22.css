@@ -1,0 +1,11 @@
+body{margin:0;}
+h1, h2, p, img {
+  border:1px solid #ddd;
+}
+img{
+  float:right;
+}
+
+h2{
+  clear:right;
+}
