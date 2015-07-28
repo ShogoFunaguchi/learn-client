@@ -1,0 +1,13 @@
+h1, p, span, a{
+  border: 10px solid #ddd;
+}
+
+h1,p{
+  width:120px;
+  display:inline-block;
+}
+
+/*span{
+  display:none;
+
+}*/
