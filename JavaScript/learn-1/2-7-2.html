@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>javapractice</title>
+  <script type="text/javascript">
+      function sum(x){
+        var i,s=100;
+        for(i=0;i<x.length;i++){
+          s-=x[i] ;
+        }return s;
+      }
+
+  </script>
+
+</head>
+<body>
+  <script type="text/javascript">
+    var a = new Array(1,2,3,4,5);
+    var b = new Array(2,7,2,44,6);
+
+    document.write("a[]="+sum(a)+"<br>");
+    document.write("b[]="+sum(b)+"<br>");
+
+
+  </script>
+</body>
+</html>

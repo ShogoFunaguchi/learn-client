@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+
+  <title>javapractice</title>
+
+</head>
+<body>
+<script type="text/javascript">
+   var girl = new Array(3);
+   girl[0]=new Array("risa","yui.gif","20");
+   girl[1]=new Array("aya","ayaka.gif","30");
+   girl[2]=new Array("rika","lisa.gif","40");
+   girl[3]=new Array("saki","saki.gif","17");
+
+   for(var i = 0;i<4;i++){
+     if(girl[i][2] >= 17){
+     document.write("<img src='"+girl[i][1]+"'>");
+     document.write(girl[i][0]+"☆"+girl[i][2]+"<br><br>");
+      }
+
+   }
+
+</script>
+</body>
+</html>
