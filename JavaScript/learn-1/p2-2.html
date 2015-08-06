@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript">
+    function disp(m)
+    {
+        var i,j;
+        for (i=0;i<m.length;i++){
+            for (j=0;j<m[0].length;j++){
+                if (m[i][j]==1)
+                    document.write("<img src='black.png'>");
+                else
+                    document.write("<img src='block.png'>");
+            }
+            document.write("<br>");
+        }
+    }
+</script>
+<body>
+<script type="text/javascript">
+    var m1=new Array(8);
+    m1[0]=new Array(0,1,1,0,0,1,1,0);
+    m1[1]=new Array(1,0,1,0,0,1,0,1);
+    m1[2]=new Array(1,0,0,1,1,0,0,1);
+    m1[3]=new Array(1,0,0,0,0,0,0,1);
+    m1[4]=new Array(1,1,0,0,0,0,1,1);
+    m1[5]=new Array(0,1,0,0,0,0,1,0);
+    m1[6]=new Array(0,0,1,0,0,1,0,0);
+    m1[7]=new Array(0,0,0,1,1,0,0,0);
+    var m2=new Array(5);
+    m2[0]=new Array(1,0,0,0,0,1,0,0,1,0,1,0,1,1,1);
+    m2[1]=new Array(1,0,0,0,1,0,1,0,1,0,1,0,1,0,0);
+    m2[2]=new Array(1,0,0,0,1,0,1,0,1,0,1,0,1,1,1);
+    m2[3]=new Array(1,0,0,0,1,0,1,0,1,0,1,0,1,0,0);
+    m2[4]=new Array(1,1,1,0,0,1,0,0,0,1,0,0,1,1,1);
+
+    disp(m1);
+    document.write("<br>")
+    disp(m2);
+</script>
+</body>
+</html>
