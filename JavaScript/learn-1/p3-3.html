@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+
+      var EnterFlag = false;
+      function input(n){
+        var box = document.getElementById("box");
+
+        if(EnterFlag){
+          box.value="";
+          EnterFlag=false;
+        }
+        box.value+=n;
+
+
+      }
+      function enter(){
+        var box = document.getElementById("box");
+        box.value = eval(box.value);
+        EnterFlag=true;
+
+      }
+
+      function cle(){
+
+        var box = document.getElementById("box").value;
+        box="";
+
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <form>
+      <input id="box" type="text" size="14">
+      <br>
+      <input id="7" type="button" value="7" onClick="input(7)">
+      <input id="8" type="button" value="8" onClick="input(8)">
+      <input id="9" type="button" value="9" onClick="input(9)">
+      <input type="button" value="Cls" onClick="cle()">
+      <br>
+      <input id="4" type="button" value="4" onClick="input(4)">
+      <input id="5" type="button" value="5" onClick="input(5)">
+      <input id="6" type="button" value="6" onClick="input(6)">
+      <input type="button" value="*" onClick="input('*')">
+      <input type="button" value="/" onClick="input('/')">
+      <br>
+      <input id="1" type="button" value="1" onClick="input(1)">
+      <input id="2" type="button" value="2" onClick="input(2)">
+      <input id="3" type="button" value="3" onClick="input(3)">
+      <input type="button" value="+" onClick="input('+')">
+      <input type="button" value="-" onClick="input('-')">
+      <br>
+      <input id="0" type="button" value="0" onClick="input(0)">
+      <input type="button" value="Enter" onClick="enter()">
+    </form>
+
+
+  </body>
+
+
+
+
+
+</html>
