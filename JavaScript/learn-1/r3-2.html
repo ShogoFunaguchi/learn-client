@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+        function over1(){
+          var obj1 = document.getElementById("boy");
+          obj1.src = "boy2.gif";
+        }
+
+        function over2(){
+          var obj2 = document.getElementById("girl");
+          obj2.src = "girl2.gif";
+        }
+
+        function out1(){
+          var obj1 = document.getElementById("boy");
+          obj1.src = "boy1.gif";
+        }
+        function out2(){
+          var obj2 = document.getElementById("girl");
+          obj2.src = "girl1.gif";
+        }
+    </script>
+  </head>
+  <body>
+    <img id="boy" src="boy1.gif" onMouseOver="over1()" onMouseOut="out1()">
+    <img id="girl" src="girl1.gif" onMouseOver="over2()" onMouseOut="out2()">
+  </body>
+
+</html>

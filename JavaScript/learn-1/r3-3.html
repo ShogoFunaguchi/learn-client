@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+      var flag =false;
+      function change(){
+        setTimeout("change()",250);
+        var obj = document.getElementById("boy");
+        if(flag){
+          obj.src="boy2.gif";
+          flag=!flag;
+        }else{
+          obj.src="boy1.gif";
+          flag=!flag;
+        }
+
+      }
+    </script>
+  </head>
+  <body onLoad="change()">
+    <img id="boy" src="boy1.gif">
+  </body>
+
+</html>
