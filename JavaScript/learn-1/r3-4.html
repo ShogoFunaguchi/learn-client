@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+      function check(box){
+        var obj =document.getElementById("img");
+        obj.src=box.options[box.selectedIndex].value;
+
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <img id="img" src="canada.gif">
+      <select onChange="check(this)">
+          <option value="canada.gif">カナダ
+          <option value="korea.gif">韓国
+          <option value="australia.gif">オーストラリア
+          <option value="japan.gif">日本
+      </select>
+    </form>
+
+  </body>
+
+</html>
