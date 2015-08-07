@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+      function disp(){
+      var msg = document.getElementById("msg");
+      var name = document.getElementById("name");
+      msg.innerHTML = "ようこそ"+"<font color='blue'>"+name.value+"</font>"+"さん";
+
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input id="name" type="text" size="14">
+      <input type="button" value="表示" onClick="disp()">
+
+    </form>
+    <div id="msg">
+    </div>
+  </body>
+
+</html>
