@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JavaPractice4</title>
+  <script>
+    function cls(){
+      var disp = document.getElementById("disp");
+      disp.value="";
+    }
+
+    function display(a){
+      var disp = document.getElementById("disp");
+      disp.value += a.value;
+    }
+
+   </script>
+ </head>
+ <body >
+   <form>
+     <p>
+       <input id="disp" type="text" size="20">
+       <input id="cls" type="button" value="クリア" onClick="cls()">
+       <br>
+       <script>
+        var i;
+        var alph="abcdefghijklmnopqrstuvwxyz";
+        for(i=0; i<26; i++){
+          document.write("<input type='button' value="+alph.charAt(i)+" onClick='display(this)'>");
+          if(i==12){
+            document.write("<br>");
+          }
+        }
+
+       </script>
+     </p>
+   </form>
+
+
+ </body>
+
+</html>
