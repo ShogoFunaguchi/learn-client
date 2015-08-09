@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JavaPractice4</title>
+  <script>
+    function uranai(){
+      var p1 = document.getElementById("p1");
+      var p2 = document.getElementById("p2");
+      var temp;
+      var couple;
+      var disp = document.getElementById("disp");
+      var i;
+
+      temp = p1.value + p2.value;
+      for(i=0;i<temp.length;i++){
+        couple =+ temp.charCodeAt(i);
+      }
+
+      disp.value = couple%101 + "%"
+    }
+   </script>
+ </head>
+ <body >
+   <p>
+     <form>
+       <input id="p1" type="text" size="10">
+       と
+       <input id="p2" type="text" size="10">
+       の
+       <input type="button" value="相性度" onClick="uranai()">
+       は
+       <input id="disp" type="text" size="5">
+       です
+    </p>
+
+   </form>
+
+
+ </body>
+
+</html>
