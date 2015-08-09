@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JavaPractice4</title>
+  <script>
+
+   var Msg = "ようこそわたしのホームページへ。。。"
+    function scroll(){
+      setTimeout("scroll()",300);
+      var disp = document.getElementById("disp");
+      Msg=Msg.substring(1,Msg.length)+Msg.substring(0,1);
+      disp.value = Msg
+    }
+    function scroll2(){
+      setTimeout("scroll2()",300);
+      var disp = document.getElementById("disp");
+      var n = Msg.length;
+      Msg=Msg.substring(n-1)+Msg.substring(0,n-1);
+      disp.value = Msg
+    }
+   </script>
+ </head>
+ <body onLoad="scroll2()">
+   <form>
+     <p>
+      <input id="disp" type="text" size="30">
+     </p>
+   </form>
+
+
+ </body>
+
+</html>
