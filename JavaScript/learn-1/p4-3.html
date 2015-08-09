@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JavaPractice4</title>
+  <script>
+    var Flag = false;
+
+    function getTime(){
+     var origin = new Date();
+     var separate = document.getElementById("separate");
+     var h1 = document.getElementById("h1");
+     var h2 = document.getElementById("h2");
+     var m1 = document.getElementById("m1");
+     var m2 = document.getElementById("m2");
+
+     setTimeout("getTime()",1000);
+
+     if(Flag){
+       separate.src="sepa2.png";
+       Flag=false;
+     }else{
+       separate.src="sepa1.png";
+       Flag=true;
+     }
+
+     h1.src="n"+Math.floor(origin.getHours()/10)+".gif";
+     h2.src="n"+origin.getHours()%10+".gif";
+     m1.src="n"+Math.floor(origin.getMinutes()/10)+".gif";
+     m2.src="n"+origin.getMinutes()%10+".gif";
+    }
+   </script>
+ </head>
+ <body onLoad="getTime()">
+   <img id="h1" src ="n0.gif"><img id="h2" src ="n0.gif">
+   <img id="separate" src ="sepa1.png">
+   <img id="m1" src ="n0.gif"><img id="m2" src ="n0.gif">
+ </body>
+
+</html>
