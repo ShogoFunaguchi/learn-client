@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<html lang="ja">
+<head>
+  <meta charset = "utf-8">
+  <title>JSP</title>
+
+<script type="text/javascript">
+    var x=40;
+    function moveright()
+    {
+        var obj=document.getElementById("face");
+        x += 10;
+        obj.style.left=x;
+    }
+
+    function movedown()
+    {
+        var obj=document.getElementById("face");
+        x += 10;
+        obj.style.top=x;
+    }
+</script>
+</head>
+<body>
+  <form>
+    <input type="button" value="下" onClick="movedown()">
+    <input type="button" value="右" onClick="moveright()">
+
+  </form>
+<img id="face" src="face.gif" style="position:absolute;left:40;top:40" >
+</body>
+</html>
