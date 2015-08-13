@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+    var cy=0,y=50,TimeId;
+    function stop()
+    {
+        clearTimeout(TimeId);
+        var obj=document.getElementById("myimg");
+        cy=parseInt(cy/60)*60;
+        y=parseInt((y-50)/60)*60+50;
+        obj.style.clip="rect("+cy+",60,"+(cy+60)+",0)";
+        obj.style.top=y;
+    }
+    function scroll()
+    {
+        TimeId=setTimeout("scroll()",100);
+        var obj=document.getElementById("myimg");
+        obj.style.clip="rect("+cy+",60,"+(cy+60)+",0)";
+        obj.style.top=y;
+        cy+=10;
+        y-=10;
+        if (cy>=60*10){
+            cy=0;
+            y=50;
+        }
+    }
+</script>
+</head>
+<body>
+<form>
+<input type="button" value="ŠJŽn" onClick="scroll()" style="position:absolute;left:50;top:20">
+<input type="button" value="’âŽ~" onClick="stop()" style="position:absolute;left:90;top:20">
+</form>
+<img id="myimg" src="number.gif" style="position:absolute;left:50;top:50;clip:rect(0,60,60,0)">
+</body>
+</html>
