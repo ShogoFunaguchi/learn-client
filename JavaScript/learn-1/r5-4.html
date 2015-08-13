@@ -1,0 +1,25 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JSP</title>
+    <script>
+    function clip(event){
+      var obj;
+      obj= document.getElementById("photo");
+      var x = event.clientX-400;
+      var y = event.clientY-400;
+
+      obj.style.clip="rect(0,"+x+","+y+",0)";
+    }
+
+    </script>
+
+
+
+  </head>
+  <body onMouseMove="clip(event)">
+    <img id="photo" src="sakura.jpg" style="position:absolute;left:50;top:50">
+
+  </body>
+</html>

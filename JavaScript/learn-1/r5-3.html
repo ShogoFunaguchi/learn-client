@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptPractice</title>
+    <script>
+     function move(event){
+
+       setTimeout("go("+event.clientX+","+event.clientY+")",100);
+
+     }
+
+     function go(x,y){
+
+       var obj;
+       obj1=document.getElementById("chara1");
+       obj2=document.getElementById("chara2");
+
+       obj1.style.left= x;
+       obj1.style.top= y;
+
+       obj2.style.left=100+x;
+       obj2.style.top= y;
+
+     }
+
+    </script>
+
+  </head>
+  <body onMouseMove="move(event)">
+
+    <img id="chara1" src="chara.gif" style="position:absolute;left:100;top:100">
+    <img id="chara2" src="chara.gif" style="position:absolute;left:200:top:100">
+
+  </body>
+
+
+</html>
