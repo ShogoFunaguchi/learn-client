@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ja">
+ <head>
+    <meta charset="utf-8">
+    <title>JSP</title>
+    <script>
+      var cy=0,y=0,Flag=true;
+      function scroll(){
+        setTimeout("scroll()",100);
+        var num = document.getElementById("number");
+
+        num.style.clip="rect("+cy+",60,"+(60+cy)+",0)";
+        num.style.top=y;
+
+
+
+        if (cy>=60*10){
+          Flag=false;
+        }else if(cy<=60){
+          Flag=true;
+        }
+        if(Flag){
+          cy +=10;
+          y -=10;
+        }else{
+          cy-=10;
+          y+=10;
+        }
+
+      }
+    </script>
+
+ </head>
+ <body onLoad="scroll()">
+   <img id="number" src="number.gif" style="position:absolute;top:0;left:0;">
+ </body>
+
+</html>

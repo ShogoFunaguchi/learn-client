@@ -1,0 +1,32 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ja">
+ <head>
+    <meta charset="utf-8">
+    <title>JSP</title>
+    <script>
+    var Ph=0, TimeID;
+      function disp(){
+        TimeID=setTimeout("disp()",200);
+        var msg=document.getElementById("msg");
+        var name=document.getElementById("name");
+        msg.style.filter="wave(freq=2,strength=5,lightstrength=10,phase="+Ph+")";
+        msg.innerHTML="<br>"+name.value+"さん"+"素敵な出会いがあるかも";
+        Ph+=5;
+        if(Ph>100)
+        Ph=0;
+
+      }
+    </script>
+
+ </head>
+ <body >
+   <form>
+     <input id="name" type="text" size="14">
+     <input type="button" value="名前を入力" onClick="clearTimeout(TimeID),disp()">
+   </form>
+   <div id="msg" style="width:600;height:100;background-color:aqua;font-size:24pt">
+     <br>元気の出る言葉だよ
+   </div>
+ </body>
+
+</html>
