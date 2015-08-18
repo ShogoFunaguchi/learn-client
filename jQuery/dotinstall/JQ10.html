@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JQP</title>
+  <style>
+
+  </style>
+ </head>
+ <body>
+  <p>jQueryの練習</p>
+  <a href="http://google.com" data-sitename="google">google<a>
+
+  </ul>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+//eq()
+
+      $(function(){
+        // console.log($('a').attr('href'));
+        // $('a').attr('href','google.co.jp');
+        console.log($('a').data('sitename'));
+    });
+  </script>
+ </body>
+
+</html>
