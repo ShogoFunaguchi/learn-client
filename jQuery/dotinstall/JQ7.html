@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JQP</title>
+ </head>
+ <body>
+  <p>jQueryの練習</p>
+  <p><a href="http://google.com">Google</a></p>
+  <p><a href="http://yahoo.co.jp">yahoo</a></p>
+  <p><a href="http://dotinstall.com">dotinstall</a></p>
+
+
+
+  </ul>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+//eq()
+
+      $(function(){
+
+        // $('a[href="http://google.com"]').css('background','red');
+        // $('a[href !="http://google.com"]').css('background','red');
+        $('a[href $="jp"]').css('background','red');
+
+
+    });
+  </script>
+ </body>
+
+</html>
