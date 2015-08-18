@@ -10,16 +10,20 @@
  <body>
   <p>jQueryの練習</p>
   <a href="http://google.com" data-sitename="google">google<a>
-
+  <input type-"text" value="hello">
   </ul>
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
 //eq()
 
       $(function(){
-        // console.log($('a').attr('href'));
-        // $('a').attr('href','google.co.jp');
-        console.log($('a').data('sitename'));
+
+      // $('p').text('just changed');
+      // $('p').html('<a href="http://google.com">click me</a>')
+      console.log($('input').val());
+      $('input').val('hello,again');
+      console.log($('input').val());
+      $('p').empty();
     });
   </script>
  </body>
