@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>JQP</title>
+  <style>
+
+  </style>
+ </head>
+ <body>
+<p>jQuery</p>
+<div id="box" style="width:100px;height:100px;background:red;"></div>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+      $(function(){
+        $('#box').hide(800);
+        $('#box').fadeIn(800,function(){
+            alert("gone");
+        });
+        $('#box').toggle(800);
+        $('#box').toggle(800);
+        $('#box').toggle(800);
+        $('#box').toggle(800);
+
+    });
+  </script>
+ </body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JQP</title>
+  </head>
+  <body>
+    <p>jQuery練習</p>
+    <input type="text" id="name">
+    <select id="members"  name="members">
+      <option>taguchi</option>
+      <option>shogo</option>
+      <option>who</option>
+    </select>
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+      $(function(){
+          $('#name').focus(function(){
+            $(this).css('background','red');
+          }).blur(function(){
+            $(this).css('background','white');
+          });
+          $('#members').change(function(){
+            alert('fuck you!');
+
+          });
+
+
+        });
+
+
+
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JQP</title>
+  </head>
+  <body>
+    <p>jQuery練習</p>
+    <div id="box" style="width:100px;height:100px;background:red;"></div>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+      $(function(){
+        $('#box').click(function(){
+          alert("hi!");
+        });
+        // $('#box').mouseover(function(){
+        //   $(this).css('background','green');
+        // });
+        // $('#box').mouseout(function(){
+        //   $(this).css('background','red');
+        $('#box').mouseover(function(){
+          $(this).css('background','green');
+        }).mouseout(function(){
+          $(this).css('background','red');})
+          .mousemove(function(e){
+            $(this).text(e.pageX,e.pageY);})
+      });
+    </script>
+  </body>
+
+</html>
