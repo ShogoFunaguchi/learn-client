@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JQP</title>
+  </head>
+  <body>
+    <p>jQuery練習</p>
+    <button>add</button>
+    </select>
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+      $(function(){
+      $('button').click(function(){
+        var p=$('<p>').text('vanish').addClass('vanish');
+        $(this).before(p);
+      });
+
+      $('body').on('click','.vanish',function(){
+        $(this).remove();
+      });
+
+        });
+
+
+
+
+    </script>
+  </body>
+
+</html>
