@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>キャラ診断</title>
+  <style>
+    body{text-align: center;}
+    </style>
+
+</head>
+
+<body>
+  <h1>キャラ診断</h1>
+  <p><input type="text" id="name" value""></p>
+  <p><input type="button" id="getResult" value="診断"></p>
+  <h2>診断結果</h2>
+  <p>こちらに結果が表示されます</p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+  $(function(){
+    $('#getResult').click(function(){
+      var name = $('#name').val();
+      console.log(name);
+    });
+  });
+  </script>
+</body>
+</html>
