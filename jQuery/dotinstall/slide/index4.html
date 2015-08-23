@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+ <meta charset="utf-8">
+ <title>スライドショーを作ってみよう</title>
+ <style>
+ body{
+   margin: 10px auto;
+   text-align : center
+ }
+  .thumbnail {
+    width:129px;
+    height:180px;
+  }
+  .mainimg {
+    width:480px;
+    height: 675px;
+  }
+
+  .thumbnail + .thumbnail{
+    margin-left: 4px;
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <div id="thumbnails"></div>
+  <div id="main"> </div>
+  <div id="nav">
+    <button id="prev"> &laquo 前へ</button>
+    <button id="next"> 次へ &raquo </button>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+
+    $(function(){
+      var files =[
+        "kayo1.jpg",
+        "kayo2.jpg",
+        "kayo3.jpg",
+        "kayo4.jpg"
+      ];
+      var img;
+      var currentNum = 0;
+      for(var i= 0 ; i<files.length; i++){
+      img =  $('<img>').attr('src',files[i]).addClass('thumbnail');
+      $('#thumbnails').append(img);
+      };
+      $('#main').append(
+        $('<img>').attr('src',files[0]).addClass('mainimg')
+      );
+
+      $('.thumbnail').click(function(){
+        $('#main img').attr('src',$(this).attr('src'));
+      });
+
+      $('#prev').click(function(){
+        currentNum--;
+        if(currentNum<0){
+          currentNum = files.length - 1;
+        }
+        $('#main img').attr('src',files[currentNum]);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
