@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoリスト</title>
+
+  </head>
+  <body>
+    <h1>-ToDo-</h1>
+
+<h2>
+    <p>
+    <button id="add">Add</button>
+      <input id="write" type="text" col="20"></input>
+    </p>
+</h2>
+
+    <div id="list">
+    </div>
+
+    <button id="done">done</button>
+
+    <p>
+      <input type="text" id="order" size="3" >
+      番目を
+      <input type="text" id="henkou" size="20" >
+      に<button id="change">変更！</button>
+    </p>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+     $(function(){
+       var count = 0;
+       $('#add').click(function(){
+         if($('#write').val()==''){
+           alert ('予定を入力してください！')
+         }else{
+           count ++;
+         $('#list').append('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'</p>');
+         $('#list > p').addClass('todo');
+       };
+       });
+
+       $('#done').click(function(){
+
+           $(':checked').parent().remove();
+
+               });
+      // $('#div').click(function(){
+      //
+      //   $(this).append('<input type="text" col="20"></input>');
+      //
+      // });
+
+      // $('#change').click(function(){
+      //
+      //   var order = $('#order').val();
+      //   var kekka = $('#henkou').val();
+      //   $('input[name='+order+']').html(kekka);
+
+      });
+
+     });
+    </script>
+  </body>
+</html>
