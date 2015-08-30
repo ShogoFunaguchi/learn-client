@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoリスト</title>
+
+  </head>
+  <body>
+    <h1>-ToDo-</h1>
+
+<h2>
+    <p>
+    <button id="add">Add</button>
+      <input id="write" type="text" col="20"></input>
+    </p>
+</h2>
+
+    <div id="list">
+    </div>
+
+    <button id="done">done</button>
+
+    <p>
+      <input type="text" id="order" size="3" >
+      番目を
+      <input type="text" id="henkou" size="20" >
+      に<button id="change">変更！</button>
+    </p>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+     var g=0;
+     $(function(){
+
+       var count = 0;
+       if(g !=0){
+         for(var i = 1; i < g+1; i++){
+       eval("var save"+i+ "=" +localStorage.getItem('save'+i));
+       $('#list').append('<p>'+i+'<input type="checkbox" name= "'+i+'" value="'+i+'">save'+i+'</p>');
+
+     };
+
+
+};
+
+
+
+
+       $('#add').click(function(){
+         if($('#write').val()==''){
+           alert ('予定を入力してください！')
+         }else{
+           count ++;
+           localStorage.setItem('save'+count,$('#write').val());
+            console.log(g);
+           console.log(localStorage.getItem('save'+count));
+         $('#list').append('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+localStorage.getItem('save'+count)+'</p>');
+
+g=count;
+   };});
+
+       $('#done').click(function(){
+
+           $(':checked').parent().remove();
+
+               });
+
+
+      $('#change').click(function(){
+
+        var order = $('#order').val();
+        var kekka = $('#henkou').val();
+        $('.'+order).replaceWith('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+kekka+'</p>');
+
+      });
+     });
+
+    </script>
+  </body>
+</html>
