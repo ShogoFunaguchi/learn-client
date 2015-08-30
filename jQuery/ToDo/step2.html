@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoリスト</title>
+
+  </head>
+  <body>
+    <h1>-ToDo-</h1>
+
+
+    <p>
+    <button id="add">Add</button>
+      <input id="write" type="text" col="20"></input>
+    </p>
+
+    <div id="list">
+
+    </div>
+
+    <button id="done">done</done>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+     $(function(){
+       var count = 0;
+       $('#add').click(function(){
+
+
+
+         if($('#write').val()==''){
+           alert ('予定を入力してください！')
+         }else{
+           count ++;
+         $('#list').append('<p><input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'</p>')
+}
+       });
+
+
+
+     });
+    </script>
+  </body>
+</html>
