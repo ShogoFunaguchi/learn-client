@@ -36,20 +36,26 @@ $(function(){
     var temp = localStorage.getItem('todo');
     todoList = JSON.parse(temp);
   }
-
+  $('#clear').click(function(){
+    localStorage.getItem('todo').clear;
+  });
     //ロード。
-
-
 
   $('#form').on('submit',function(e){
     addTodo($('#write').val(),true);
     return false;
   });
+    //セーブ関数
+  var save =function(){
+    localStorage.setItem('todo',JSON.stringify(todoList));
+  };
 
+  var archive =function(){
+    var todoListElement =$
 
+  };
 
-
-    //関数add
+    //addTodo関数
   var addTodo = function(text,sync){//←sync=同期
 
     //JSON 形式にしてテキスト保存するため
@@ -71,19 +77,38 @@ $(function(){
   //checkboxを追加。
     var checkbox = $('<input type= "checkbox">');//用意
     li.append(checkbox); //追加
-    var span = $('<span>');//pタグの追加用意
+    var span = $('<span>');//span要素の追加用意
     li.append(span);//追加
-    span.text(text);
+    span.text(text);//span要素のテキストに取得したtextを入れる。
 
+    //checkboxにチェックが入った場合
+    var checkbox = li.find('input[type = "checkbox"]');//チェックボックスを探して変数に代入。
+    checkbox.on('change',function(){//checkboxが変更されたら以下実行
+      if(this.checked){//もしもチェックが入ったなら
+        li.addClass('done');//クラス名を「done」として追加。
+        item.done=true; //dataをtrueに。
+      }else{
+        //上と真逆のことをやる。
+        item.done=false;
+        li.removeClass('done');
+      }
+      //セーブ関数実行
+      save();
+
+    });
+
+    //変更するときの動作。
     span.on('click', function() {});
     li.on('click', function() {});
 
   };
 
-            //todoListのそれぞれにたいして、addTodoを実行してやる
-            todoList.forEach(function(Todo){
-             addTodo(Todo.text,false);
-           });
+
+
+  //todoListのそれぞれにたいして、addTodoを実行してやる
+  todoList.forEach(function(Todo){
+    addTodo(Todo.text,false);
+  });
 });
 </script>
 
