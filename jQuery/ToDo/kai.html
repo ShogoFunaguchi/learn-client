@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>to do kai</title>
+</head>
+
+<body>
+  <h1>-ToDo-</h1>
+
+  <h2>
+    <form id="form">
+    <button type ="submit">Add</button>
+    <input id="write" type="text" cols="20"></input>
+    </form>
+  </h2>
+
+  <div id="list">
+    <ul id="todoList">
+    </ul>
+  </div>
+
+  <button id="done">done</button>
+  <button id="clear">clear</button>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+  //保存するための配列。
+  var todoList=[];
+
+  if (localStorage.getItem('todo')) {
+    var temp = localStorage.getItem('todo');
+    todoList = JSON.parse(temp);
+  }
+
+    //ロード。
+
+
+
+  $('#form').on('submit',function(e){
+    addTodo($('#write').val(),true);
+    return false;
+  });
+
+
+
+
+    //関数add
+  var addTodo = function(text,sync){//←sync=同期
+
+    //JSON 形式にしてテキスト保存するため
+    var item = {
+      text: text
+    };
+
+    //syncがtrueならばtodoListにpushで配列itemに加えてゆく。
+    if(sync){
+      todoList.push(item);
+      localStorage.setItem('todo',JSON.stringify(todoList));
+    };
+
+    var todoListElement =$('#todoList');//要素を追加していく
+    var li = $('<li>');//<li>要素を準備。
+    todoListElement.append(li);//追加。
+    li.data('item',item)//dataタグをitemと名前をつけて、<li>に追加。
+
+  //checkboxを追加。
+    var checkbox = $('<input type= "checkbox">');//用意
+    li.append(checkbox); //追加
+    var span = $('<span>');//pタグの追加用意
+    li.append(span);//追加
+    span.text(text);
+
+    span.on('click', function() {});
+    li.on('click', function() {});
+
+  };
+
+            //todoListのそれぞれにたいして、addTodoを実行してやる
+            todoList.forEach(function(Todo){
+             addTodo(Todo.text,false);
+           });
+});
+</script>
+
+</body>
+
+</html>
