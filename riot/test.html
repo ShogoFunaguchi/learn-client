@@ -39,7 +39,7 @@
 
   <app-li>
     <ul>
-      <li each = '{todo}' onclick = '{changecontent}'><input type='checkbox' checked={checked} onclick='{check}' done=false/>{action}</li>
+      <li each = '{todo}'><input type='checkbox' checked={checked} onclick='{check}' done=false/><span onclick="{changecontent}">{action}</span></li>
     </ul>
 
     <input type='textbox' id = 'todo' placeholder='please write somthing'/><br/>
@@ -81,20 +81,22 @@
       todoList = this.todo;
     }
 
-    // changecontent(event){
-    //   $(this).on('click',function(){
-    //     var textbox = $('input[type="textbox"]');
-    //     var tex;
-    //
-    //     $(this).text(tex);
-    //     todoList= this.todo;
-    //   })
-
-
-    //
-
-
-
+    changecontent(event){
+      $(this).on('click',function(){
+        var tex;
+        thisSpan=$(this);
+        $(this).parent().append(<input type-'textbox'/>);
+        $('li>input[type="textbox"]').on("focus",function(){
+          $(thisSpan).addClass("hide");
+          tex=$(this).val();
+        }):
+        $('li>input[type="textbox"]').on("blur",function(){
+          $(thisSpan).text(tex);
+          $(thisSpan).removeClass("hide");
+        });
+        todoList= this.todo;
+      }
+    }
   </app-li>
 </script>
 
