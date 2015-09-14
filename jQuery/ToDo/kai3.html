@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>to do kai</title>
+</head>
+
+<body>
+  <h1>-ToDo-</h1>
+
+  <h2>
+    <form id="form">
+      <button type ="submit">Add</button>
+      <input id="write" name="todo" type="text" ></input>
+    </form>
+  </h2>
+
+  <div id="list">
+    <ul id="todoList">
+    </ul>
+  </div>
+
+  <button id="doned">done</button>
+  <button id="clear">clear</button>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+  //保存するための配列。
+  var todoList=[];
+
+  window.onload=function(){
+    load();
+
+  $('#clear').on('click',function(){
+
+
+    localStorage.clear();
+
+  });
+
+  $('#doned').on('click',function(){
+    archive();
+    load();
+  });
+
+  $('#form').on('submit',function(e){
+    var todo = $(this).find('input[name="todo"]');
+    addTodo({
+      text: todo.val(),
+      done: false,
+    },true);
+    return false;
+  });
+
+  //todoListのそれぞれにたいして、addTodoを実行してやる
+  todoList.forEach(function(todo){
+    addTodo(todo.text,false);
+  });
+};
+
+  //ロード関数
+  var load = function(){
+    if (localStorage.getItem('todo')) {
+      var temp = localStorage.getItem('todo');
+      todoList = JSON.parse(temp);
+    }
+  };
+
+
+
+
+  //セーブ関数
+  var save =function(){
+    localStorage.setItem('todo',JSON.stringify(todoList));
+  };
+
+  var archive = function(){
+    var todoListElement = $('#todoList');
+    todoListElement.children().each(function(i,li){
+      var li =$(li);
+      var item = li.data('item');
+      if(item.done){
+        li.remove();
+        removeTodo(item);
+      }
+    });
+  };
+
+
+
+
+    //addTodo関数
+  var addTodo = function(item,sync){//←sync=同期
+
+    //syncがtrueならばtodoListにpushで配列itemに加えてゆく。
+    if(sync){
+      todoList.push(item);
+      save();
+    };
+
+    var todoListElement =$('#todoList');//要素を追加していく
+    var li = $('<li>');//<li>要素を準備。
+    var sinput=$('<input type="text" class="hide">')
+    todoListElement.append(li);//追加。
+    //dataタグをitemと名前をつけて、<li>に追加。
+
+  //checkboxを追加。
+    var checkbox = $('<input type= "checkbox">');//用意
+    li.append(checkbox); //追加
+    var span = $('<span>');//span要素の追加用意
+    li.append(span);//追加
+
+    span.text(item);//span要素のテキストに取得したtextを入れる。
+      li.data('item',item);
+    li.append(sinput);
+
+
+    //checkboxにチェックが入った場合
+    var checkbox = li.find('input[type = "checkbox"]');//チェックボックスを探して変数に代入。
+    var span = li.find('span');
+    var input = li.find('input[type = "text"]')
+    checkbox.on('change',function(){//checkboxが変更されたら以下実行
+      if(this.checked){//もしもチェックが入ったなら
+        li.addClass('done');//クラス名を「done」として追加。
+        item.done = true; //dataをtrueに。
+      }else{
+        //上と真逆のことをやる。
+        item.done = false;
+        li.removeClass('done');
+      }
+      //セーブ関数実行
+      save();
+    });
+
+    if(item.done){
+      checkbox.prop('checked',true);
+      li.addClass('done');
+    };
+
+    var text = item.text;
+    span.text(text);
+    input.val(text);
+
+    //それぞれの要素をクリックしたときの動作
+    span.on('click', function() {
+
+      span.addClass('hide');
+      input.removeClass('hide');
+      input.focus();
+    });
+    input.on('blur',function(){
+
+      input.addClass('hide');
+      span.removeClass('hide');
+
+      var text = input.val();
+      span.text(text);
+      input.val(text);
+      item.text=text;
+      save();
+      this.remove();
+    });
+  };
+
+  var removeTodo = function(item){
+    var i = todoList.indexOf(item);
+    todoList.splice(i,1);
+    save();
+  };
+
+
+});
+</script>
+
+</body>
+
+</html>
