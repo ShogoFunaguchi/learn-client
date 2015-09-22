@@ -22,3 +22,9 @@ li.done {
   display: none;
 }
 
+input[type='checkbox']{
+position: static !important;
+left: initial !important;
+visibility: visible !important;
+
+}
