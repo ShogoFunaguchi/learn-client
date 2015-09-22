@@ -9,7 +9,8 @@
     $('#clear').on('click',function(){
       localStorage.clear();
       load();
-
+      var todolistElement = $('#todoList');
+      todolistElement.html('');
     });
     $('#btnArchive').on('click', function() {
       archive();
