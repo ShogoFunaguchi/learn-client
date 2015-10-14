@@ -31,38 +31,52 @@
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>
+     var g=0;
      $(function(){
+
        var count = 0;
+       if(g !=0){
+         for(var i = 1; i < g+1; i++){
+       eval("var save"+i+ "=" +localStorage.getItem('save'+i));
+       $('#list').append('<p>'+i+'<input type="checkbox" name= "'+i+'" value="'+i+'">save'+i+'</p>');
+
+     };
+
+
+};
+
+
+
+
        $('#add').click(function(){
          if($('#write').val()==''){
            alert ('予定を入力してください！')
          }else{
            count ++;
-         $('#list').append('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'</p>');
-         $('#list > p').addClass('todo');
-       };
-       });
+           localStorage.setItem('save'+count,$('#write').val());
+            console.log(g);
+           console.log(localStorage.getItem('save'+count));
+         $('#list').append('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+localStorage.getItem('save'+count)+'</p>');
+
+g=count;
+   };});
 
        $('#done').click(function(){
 
            $(':checked').parent().remove();
 
                });
-      // $('#div').click(function(){
-      //
-      //   $(this).append('<input type="text" col="20"></input>');
-      //
-      // });
 
-      // $('#change').click(function(){
-      //
-      //   var order = $('#order').val();
-      //   var kekka = $('#henkou').val();
-      //   $('input[name='+order+']').html(kekka);
+
+      $('#change').click(function(){
+
+        var order = $('#order').val();
+        var kekka = $('#henkou').val();
+        $('.'+order).replaceWith('<p>'+count+'<input type="checkbox" name= "'+count+'" value="'+count+'">'+kekka+'</p>');
 
       });
-
      });
+
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-.help{cursor:help;}
-.dragme{cursor:move;}
-.clickme{cursor:pointer;}
-.kayo{cursor: url("kayo.jpg"),auto;}
+body{background-color: skyblue;
+    background-image: url(kayo.jpg);
+    background-postion:top center
+}

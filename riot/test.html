@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <title>riot.js test</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.css"  media="screen,projection"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="style.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.js"></script>
+  <script src="https://cdn.jsdelivr.net/g/riot@2.2(riot.min.js+compiler.min.js)"></script>
+
+
+</head>
+<body>
+  <div class='container'>
+    <app-title></app-title>
+    <app-main></app-main>
+  </div>
+</body>
+</html>
+
+
+<script type='riot/tag'>
+  <app-title>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">ToDo</a>
+      </div>
+    </nav>
+    <div class="row">
+    </div>
+  </app-title>
+</script>
+<script type='riot/tag'>
+  <app-main>
+    <div class="card-panel teal lighten-5">
+      <form id='addForm'>
+        <i class="material-icons">mode_edit</i><input name='todo' type='text' placeholder="please write something here !" />
+        <button class="waves-effect waves-light btn" type='submit'>Add</button>
+      </form>
+    </div>
+
+    <ul id='todoList' class="collection card-panel teal lighten-5">
+    </ul>
+    <div>
+      <button id='btnArchive' type='submit' class="waves-effect waves-light btn"><i class="large material-icons">done</i>
+      </button>
+      <button id='clear' class="waves-effect waves-light btn"><i class="material-icons">clear_all</i></button>
+    </div>
+  </app-main>
+</script>
+
+
+<script>riot.mount('*')</script>

@@ -27,17 +27,18 @@
      $(function(){
        var count = 0;
        $('#add').click(function(){
-
-
-
          if($('#write').val()==''){
            alert ('予定を入力してください！')
          }else{
            count ++;
-         $('#list').append('<p><input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'</p>')
-}
+         $('#list').append('<p><input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'<p>')
+       };
        });
 
+       $('#done').click(function(){
+         $(':checked').parent().remove();
+
+               });
 
 
      });

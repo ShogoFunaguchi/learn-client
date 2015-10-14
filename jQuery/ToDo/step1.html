@@ -11,14 +11,10 @@
 
     <p>
     <button id="add">Add</button>
-      <input type="text" col="20"></input>
+      <input id="write" type="text" col="20"></input>
     </p>
 
     <div id="list">
-
-    <p><input type="checkbox" name="1" value="1">三面までクリアする</p>
-    <p><input type="checkbox" name="2" value="2">映画を予習する</p>
-    <p><input type="checkbox" name="3" value="3">国語学概説の教科書を買う</p>
 
     </div>
 
@@ -28,6 +24,23 @@
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>
+     $(function(){
+       var count = 0;
+       $('#add').click(function(){
+
+
+
+         if($('#write').val()==''){
+           alert ('予定を入力してください！')
+         }else{
+           count ++;
+         $('#list').append('<p><input type="checkbox" name= "'+count+'" value="'+count+'">'+($('#write').val())+'</p>')
+}
+       });
+
+
+
+     });
     </script>
   </body>
 </html>
