@@ -31,6 +31,13 @@
       done:false,
     },
   ];
+  var load = function(){
+    if (localStorage.getItem('todo')) {
+      var temp = localStorage.getItem('todo');
+      todoList = JSON.parse(temp);
+
+    };
+  }
   if (localStorage.getItem('todo')) {
     var temp = localStorage.getItem('todo');
     todoList = JSON.parse(temp);
@@ -39,7 +46,13 @@
 
   <app-li>
     <ul>
-      <li each = '{todo}'><input type='checkbox' checked={checked} onclick='{check}' done=false/><span onclick="{changecontent}">{action}</span></li>
+      <li each = '{todo}'>
+        <input type='checkbox' checked={checked} onclick='{check}' done=false/>
+          <span onclick="{cc}" >
+            {action}
+          </span>
+          <input type='text' class = 'changebox' onblur="{changeDone}" style="display:none;">
+      </li>
     </ul>
 
     <input type='textbox' id = 'todo' placeholder='please write somthing'/><br/>
@@ -49,11 +62,11 @@
 
 
     this.todo=todoList;
+    var superT = this.todo;
     add(){
       if($('#todo').val()){
         var txt = $('#todo').val();
         todoList.push({action:txt,checked:false,done:false,});
-        this.todo  = todoList;
         localStorage.setItem('todo',JSON.stringify(todoList));
       };
     }
@@ -73,30 +86,33 @@
       });
     }
     ach(event){
+      var item = event.item;
       $('ul').find('li[class = "done"]').remove();
-      todoList = this.todo;
+      todoList.push();
       }
     clear(event){
       this.todo.length=0;
       todoList = this.todo;
     }
 
-    changecontent(event){
-      $(this).on('click',function(){
-        var tex;
-        thisSpan=$(this);
-        $(this).parent().append(<input type-'textbox'/>);
-        $('li>input[type="textbox"]').on("focus",function(){
-          $(thisSpan).addClass("hide");
-          tex=$(this).val();
-        }):
-        $('li>input[type="textbox"]').on("blur",function(){
-          $(thisSpan).text(tex);
-          $(thisSpan).removeClass("hide");
-        });
-        todoList= this.todo;
-      }
+    var changeText='hoge';
+    cc(e){
+      $(e.target).hide();
+      $(e.target).parent().find('input').show();
+
     }
+
+    changeDone(e){
+
+      changeText = $(e.target).val();
+      $(e.target).parent().find('span').text(changeText);
+      $(e.target).parent().find('span').show();
+      $(e.target).hide();
+      todoList = this.todo;
+      localStorage.setItem('todo',JSON.stringify(todoList));
+
+    }
+
   </app-li>
 </script>
 
