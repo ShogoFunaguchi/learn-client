@@ -24,25 +24,6 @@
 </html>
 <script type='riot/tag'>
 
-  var todoList = [
-    {
-      action:'例：ステーキクニでご飯',
-      checked:false,
-      done:false,
-    },
-  ];
-  var load = function(){
-    if (localStorage.getItem('todo')) {
-      var temp = localStorage.getItem('todo');
-      todoList = JSON.parse(temp);
-
-    };
-  }
-  if (localStorage.getItem('todo')) {
-    var temp = localStorage.getItem('todo');
-    todoList = JSON.parse(temp);
-
-  }
 
   <app-li>
     <ul>
@@ -59,15 +40,34 @@
     <button id='add' onclick="{add}">add</button>
     <button id='ach' onclick="{ach}">done</button>
     <button id='clear' onclick="{clear}">clear</button>
+    if (localStorage.getItem('todo')) {
+      var temp = localStorage.getItem('todo');
+      todoList = JSON.parse(temp);
 
+    }
 
+    var todoList = [
+      {
+        action:'例：ステーキクニでご飯',
+        checked:false,
+        done:false,
+      },
+    ];
+    var load = function(){
+      if (localStorage.getItem('todo')) {
+        var temp = localStorage.getItem('todo');
+        todoList = JSON.parse(temp);
+
+      };
+    }
+
+    load();
     this.todo=todoList;
-    var superT = this.todo;
     add(){
       if($('#todo').val()){
         var txt = $('#todo').val();
         todoList.push({action:txt,checked:false,done:false,});
-        localStorage.setItem('todo',JSON.stringify(todoList));
+        localStorage.setItem('todo',JSON.stringify(this.todo));
       };
     }
     check(){
@@ -86,13 +86,12 @@
       });
     }
     ach(event){
-      var item = event.item;
       $('ul').find('li[class = "done"]').remove();
-      todoList.push();
+      localStorage.setItem('todo',JSON.stringify(this.todo));
       }
     clear(event){
       this.todo.length=0;
-      todoList = this.todo;
+      localStorage.setItem('todo',JSON.stringify(this.todo));
     }
 
     var changeText='hoge';
