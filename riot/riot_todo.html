@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Todo App</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <meta name="description" content="${description}" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/riot/2.2.4/riot+compiler.min.js'></script>
+
+  </head>
+  <body>
+    <app></app>
+  </body>
+</html>
+
+<script type='riot/tag'>
+<app>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">ToDo</a>
+    </div>
+  </nav>
+  <div class='card-panel teal lighten-5'>
+    <ul class = 'collection'>
+      <li each='{list}' class={item:true, done:done, collection-item: true} >
+        <input type='checkbox' class='field-in' checked={done} onchange='{check}'/>
+        <span show={!edit} onclick='{focus}'>
+          {action}
+        </span>
+        <input type='text' show={edit} name='tempText' onblur='{blur}'/>
+      </li>
+    </ul>
+  </div>
+  <div class='container input-field col s6'>
+    <input  class='validate' type='text' name='maininput' id='mainTextarea'/>
+    <label for='mainTextarea'>Please write something</label>
+  </div>
+  <div class='container center'>
+    <button class="btn-floating waves-effect waves-light" onclick='{add}'><i class='large material-icons'>add</i></button>
+    <button class="waves-effect waves-light btn-floating" onclick='{ach}'><i class="large material-icons">done</i></button>
+    <button class="waves-effect waves-light btn-floating red accent-3" onclick='{clear}'><i class='small material-icons'>clear_all</i></clear>
+  </div>
+  <style>
+    app ul li.done{
+      text-decoration: line-through;
+      color: hsl(0, 0%, 80%);
+    }
+    input[type='checkbox']{
+    position: static !important;
+    left: initial !important;
+    visibility: visible !important;
+
+    }
+
+  </style>
+
+  this.save = function(){
+    localStorage.setItem('todo',JSON.stringify(this.list));
+  }
+  this.load= function(){
+    if(localStorage.getItem('todo')){
+      this.list = JSON.parse(localStorage.getItem('todo'));
+    }else{
+      this.list = [
+        {
+          action:'例:くにでご飯',
+          done:true,
+          edit:true,
+        },
+      ];
+    }
+  }
+  this.add = function(e){
+    this.list.push(
+        {
+          action:$('#mainTextarea').val(),
+          done:false,
+          edit:false,
+        }
+    );
+
+    this.save();
+  }
+  this.ach = function(){
+    this.list = this.list.filter(function(item){
+      return item.done == false;
+    });
+    this.save();
+  }
+  this.check= function(e){
+     e.item.done = e.target.checked;
+  }
+
+  this.clear= function(){
+    if(confirm('全ての予定を消してしまいますがよろしいですか？')){
+      this.list.length = 0;
+      this.save();
+    }
+  }
+
+  this.focus=function(e){
+    e.item.edit = true;
+    var input = e.target.nextElementSibling;
+    setTimeout(function() {
+      input.focus();
+    }, 100);
+  }
+  this.blur = function(e){
+    if(e.target.value){
+      e.item.action = e.target.value;
+      e.item.edit = false;
+      this.save();
+    }
+  e.item.edit = false;
+  this.save();
+  }
+
+  this.load();
+</app>
+</script>
+
+<script>
+  riot.mount("*");
+</script>
