@@ -1,6 +1,33 @@
+@charset "UTF-8";
 /*
 Theme Name:MY THEME
 Author:  TRAVEL SKETCH
 Description:this is my original theme.
 Version:1.0
 */
+
+body{font-family:'メイリオ','Hiragino kaku Gothic',sans-serif;}
+
+article h1{
+	margin:0;
+	font-size:32px;
+	font-weight:normal;
+}
+
+.postinfo{
+	margin-top:15px;
+	font-size:14px;
+}
+
+.postinfo a{
+	color:#000000;
+	text-decoration:none;
+}
+
+.postinfo .postcat{
+	margin-left:20px;
+}
+
+.postinfo i{
+	color:#888888;
+}
