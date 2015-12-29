@@ -158,7 +158,37 @@ article img{
 }
 
 
+/*メニュー*/
+.blogmenu ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+.blogmenu .widget{
+	margin-bottom:30px;
+	padding:20px;
+	background-color:#e8e8e8;
+}
+
+.blogmenu .widgettitle{
+	margin-top:10px;
+	margin-bottom:20px;
+	border-right:solid 10px #4a5f7e;
+	color:#4a5f7e;
+	font-size:14px;
+}
 
 
+.blogmenu li a{
+	display:block;
+	padding:10px 5px;
+	text-decoration:none;
+	color:#666666;
+	font-size:14px;
+}
 
+.blogmenu li a:hover{
+	background-color:#ffffff;
+}
 

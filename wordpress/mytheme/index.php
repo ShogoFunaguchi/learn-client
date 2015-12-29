@@ -31,6 +31,7 @@
 		<?php else:?>
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<?php endif;?>
+
 		<div class='postinfo'>
 			<time datetime="<?php echo get_the_date('Y-m-d');?>">
 				<i class="fa fa-clock-o"></i>
@@ -71,7 +72,13 @@
 	</div>
 <?php endif;?>
 
+<div class="blogmenu">
+	<ul>
+		<?php dynamic_sidebar();?>
+	</ul>
 </div>
+
+</div><!--container-->
 
 <?php wp_footer();?>
 <footer>
